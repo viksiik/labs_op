@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <iostream>
 
-void main_ptr();                            //головна функція
-char* output_infile_c(char* ptr);           //вивід вхідного файлу
-char* input_record_c();                     //запис даних у файл
-char* changeText_c(char* ptr);              //змінити текст(цифри вперед)
-char* replace_dublicates_c(char* ptr);      //замінити дублікати
-char* add_record_c();                       //додати запис у файл
-void write_to_file_c();                     //записати у файл
+void main_ptr();                            //РіРѕР»РѕРІРЅР° С„СѓРЅРєС†С–СЏ
+char* output_infile_c(char* ptr);           //РІРёРІС–Рґ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+char* input_record_c();                     //Р·Р°РїРёСЃ РґР°РЅРёС… Сѓ С„Р°Р№Р»
+char* changeText_c(char* ptr);              //Р·РјС–РЅРёС‚Рё С‚РµРєСЃС‚(С†РёС„СЂРё РІРїРµСЂРµРґ)
+char* replace_dublicates_c(char* ptr);      //Р·Р°РјС–РЅРёС‚Рё РґСѓР±Р»С–РєР°С‚Рё
+char* add_record_c();                       //РґРѕРґР°С‚Рё Р·Р°РїРёСЃ Сѓ С„Р°Р№Р»
+void write_to_file_c();                     //Р·Р°РїРёСЃР°С‚Рё Сѓ С„Р°Р№Р»
