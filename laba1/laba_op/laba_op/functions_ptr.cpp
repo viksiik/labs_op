@@ -7,36 +7,36 @@ void main_ptr() {
     char* file = new char[100];
 
     cout << "Now you are in Pointer Mode\n";
-    input_record_c();                           //ввести дані
+    input_record_c();                           //РІРІРµСЃС‚Рё РґР°РЅС–
 
-    add_record_c();                             //додати дані
+    add_record_c();                             //РґРѕРґР°С‚Рё РґР°РЅС–
 
-    output_infile_c(file);                      //вивести вміст файлу
-    changeText_c(file);                         //змінити текст
+    output_infile_c(file);                      //РІРёРІРµСЃС‚Рё РІРјС–СЃС‚ С„Р°Р№Р»Сѓ
+    changeText_c(file);                         //Р·РјС–РЅРёС‚Рё С‚РµРєСЃС‚
 
     cout << "\nOUTPUT FILE:\n";
-    write_to_file_c();                          //записати у файл
+    write_to_file_c();                          //Р·Р°РїРёСЃР°С‚Рё Сѓ С„Р°Р№Р»
 }
 
 char* input_record_c() {
     FILE* file;
     char* line;
-    line = (char*)malloc(sizeof(char) * 600);                                   //виділити пам'ять
+    line = (char*)malloc(sizeof(char) * 600);                                   //РІРёРґС–Р»РёС‚Рё РїР°Рј'СЏС‚СЊ
 
-    file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "wt");   //відкрити вхідний файл 
+    file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "wt");   //РІС–РґРєСЂРёС‚Рё РІС…С–РґРЅРёР№ С„Р°Р№Р» 
 
     cout << ("\nInput your text (press Enter and then * to stop):\n");
 
-    do {                                                                        //цикл для запису тексту
-        fgets(line, sizeof(line), stdin);                                       //до знака "*"
+    do {                                                                        //С†РёРєР» РґР»СЏ Р·Р°РїРёСЃСѓ С‚РµРєСЃС‚Сѓ
+        fgets(line, sizeof(line), stdin);                                       //РґРѕ Р·РЅР°РєР° "*"
 
-        if (strcmp(line, "*\n") != 0) {                             //якщо рядок не містить "*"
-            fprintf(file, "%s", line);                              //записати у вхідний файл
+        if (strcmp(line, "*\n") != 0) {                             //СЏРєС‰Рѕ СЂСЏРґРѕРє РЅРµ РјС–СЃС‚РёС‚СЊ "*"
+            fprintf(file, "%s", line);                              //Р·Р°РїРёСЃР°С‚Рё Сѓ РІС…С–РґРЅРёР№ С„Р°Р№Р»
         }
     } while (strcmp(line, "*\n") != 0);
 
-    free(line);         //звільнити пам'ять
-    fclose(file);       //закрити вхідний файл
+    free(line);         //Р·РІС–Р»СЊРЅРёС‚Рё РїР°Рј'СЏС‚СЊ
+    fclose(file);       //Р·Р°РєСЂРёС‚Рё РІС…С–РґРЅРёР№ С„Р°Р№Р»
     return line;
 
 }
@@ -44,77 +44,77 @@ char* input_record_c() {
 char* output_infile_c(char* ptr) {
     FILE* file;
 
-    if ((file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "rt")) == NULL) {  //відкриття вхідного файла та перевірка відкриття
-        cout << "File doesn`t exist" << endl;                                                  //вивід помилки
-        fclose(file);                                                                          //закриття вхідного файлу
+    if ((file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "rt")) == NULL) {  //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Р° С‚Р° РїРµСЂРµРІС–СЂРєР° РІС–РґРєСЂРёС‚С‚СЏ
+        cout << "File doesn`t exist" << endl;                                                  //РІРёРІС–Рґ РїРѕРјРёР»РєРё
+        fclose(file);                                                                          //Р·Р°РєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
     }
     else {
-        file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "rt");            //відкриття вхідного файлу
+        file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "rt");            //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
         cout << "\nINPUT FILE:\n";
-        while (fgets(ptr, strlen(ptr) + 1, file)) {                       //вивід вмісту файлу
+        while (fgets(ptr, strlen(ptr) + 1, file)) {                       //РІРёРІС–Рґ РІРјС–СЃС‚Сѓ С„Р°Р№Р»Сѓ
             cout << ptr;
         }
-        fclose(file);                           //закриття файлу
+        fclose(file);                           //Р·Р°РєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ
     }
 
     return ptr;
 }
 
 char* changeText_c(char* ptr) {
-    int len = strcspn(ptr, "\n\r");               //довжина підрядка у вихідному рядку без символів "\n\r"
+    int len = strcspn(ptr, "\n\r");               //РґРѕРІР¶РёРЅР° РїС–РґСЂСЏРґРєР° Сѓ РІРёС…С–РґРЅРѕРјСѓ СЂСЏРґРєСѓ Р±РµР· СЃРёРјРІРѕР»С–РІ "\n\r"
 
     char buffer[400];
-    strncpy(buffer, ptr, len);                       //копіювання len з рядка ptr в буфер buffer  
+    strncpy(buffer, ptr, len);                       //РєРѕРїС–СЋРІР°РЅРЅСЏ len Р· СЂСЏРґРєР° ptr РІ Р±СѓС„РµСЂ buffer  
     buffer[len] = '\0';
 
     char digits[400], otherChars[400];
     int numDigits = 0, numOtherChars = 0;
 
-    for (int i = 0; i < len; i++) {                          //цикл для пошуку цифр та символів у тексті
-        if (isdigit(buffer[i])) {                            //перевірка на цифри
-            digits[numDigits++] = buffer[i];                 //якщо так - то додати до буферу
+    for (int i = 0; i < len; i++) {                          //С†РёРєР» РґР»СЏ РїРѕС€СѓРєСѓ С†РёС„СЂ С‚Р° СЃРёРјРІРѕР»С–РІ Сѓ С‚РµРєСЃС‚С–
+        if (isdigit(buffer[i])) {                            //РїРµСЂРµРІС–СЂРєР° РЅР° С†РёС„СЂРё
+            digits[numDigits++] = buffer[i];                 //СЏРєС‰Рѕ С‚Р°Рє - С‚Рѕ РґРѕРґР°С‚Рё РґРѕ Р±СѓС„РµСЂСѓ
         }
         else {
-            otherChars[numOtherChars++] = buffer[i];          //додати інші символи до буферу
+            otherChars[numOtherChars++] = buffer[i];          //РґРѕРґР°С‚Рё С–РЅС€С– СЃРёРјРІРѕР»Рё РґРѕ Р±СѓС„РµСЂСѓ
         }
     }
 
-    digits[numDigits] = '\0';                         // додати символ кінця рядка
-    otherChars[numOtherChars] = '\0';                 //додати символ кінця рядка
+    digits[numDigits] = '\0';                         // РґРѕРґР°С‚Рё СЃРёРјРІРѕР» РєС–РЅС†СЏ СЂСЏРґРєР°
+    otherChars[numOtherChars] = '\0';                 //РґРѕРґР°С‚Рё СЃРёРјРІРѕР» РєС–РЅС†СЏ СЂСЏРґРєР°
 
-    strcpy(ptr, digits);                              //копіювання масиву цифр до файла
+    strcpy(ptr, digits);                              //РєРѕРїС–СЋРІР°РЅРЅСЏ РјР°СЃРёРІСѓ С†РёС„СЂ РґРѕ С„Р°Р№Р»Р°
 
     for (int i = numOtherChars - 1; i >= 0; i--) {
-        strncat(ptr, &otherChars[i], 1);                 //вставка інших символів до файла(у зворотньому порядку)
+        strncat(ptr, &otherChars[i], 1);                 //РІСЃС‚Р°РІРєР° С–РЅС€РёС… СЃРёРјРІРѕР»С–РІ РґРѕ С„Р°Р№Р»Р°(Сѓ Р·РІРѕСЂРѕС‚РЅСЊРѕРјСѓ РїРѕСЂСЏРґРєСѓ)
     }
 
     return ptr;
 }
 
 char* replace_dublicates_c(char* ptr) {
-    int len = strlen(ptr);                         //довжина рядка ptr
+    int len = strlen(ptr);                         //РґРѕРІР¶РёРЅР° СЂСЏРґРєР° ptr
 
     char result[100];
     int index = 0;
 
-    for (int i = 0; i < len; i++) {              //цикл для заміни дублікатів
+    for (int i = 0; i < len; i++) {              //С†РёРєР» РґР»СЏ Р·Р°РјС–РЅРё РґСѓР±Р»С–РєР°С‚С–РІ
         int count = 1;
-        while (i < len - 1 && ptr[i] == ptr[i + 1] && isdigit(ptr[i])) {  //підрахунок повторів одинакових цифр у рядках
+        while (i < len - 1 && ptr[i] == ptr[i + 1] && isdigit(ptr[i])) {  //РїС–РґСЂР°С…СѓРЅРѕРє РїРѕРІС‚РѕСЂС–РІ РѕРґРёРЅР°РєРѕРІРёС… С†РёС„СЂ Сѓ СЂСЏРґРєР°С…
             count++;
             i++;
         }
-        if (count > 1) {                //якщо більше 1 цифри, обмежити цифру дужками ()
+        if (count > 1) {                //СЏРєС‰Рѕ Р±С–Р»СЊС€Рµ 1 С†РёС„СЂРё, РѕР±РјРµР¶РёС‚Рё С†РёС„СЂСѓ РґСѓР¶РєР°РјРё ()
             result[index++] = '(';
             result[index++] = ptr[i];
             result[index++] = ')';
         }
         else {
-            result[index++] = ptr[i];       //інакше просто записати цифру
+            result[index++] = ptr[i];       //С–РЅР°РєС€Рµ РїСЂРѕСЃС‚Рѕ Р·Р°РїРёСЃР°С‚Рё С†РёС„СЂСѓ
         }
     }
 
-    result[index] = '\0';              //додати символ кінця
-    strcpy(ptr, result);               //скопіювати результат у файл
+    result[index] = '\0';              //РґРѕРґР°С‚Рё СЃРёРјРІРѕР» РєС–РЅС†СЏ
+    strcpy(ptr, result);               //СЃРєРѕРїС–СЋРІР°С‚Рё СЂРµР·СѓР»СЊС‚Р°С‚ Сѓ С„Р°Р№Р»
     return ptr;
 }
 
@@ -122,50 +122,50 @@ char* add_record_c() {
     FILE* file;
     char* line;
     char choice;
-    line = (char*)malloc(sizeof(char) * 600);                  //виділення пам'яті для line
+    line = (char*)malloc(sizeof(char) * 600);                  //РІРёРґС–Р»РµРЅРЅСЏ РїР°Рј'СЏС‚С– РґР»СЏ line
 
     cout << "\nWould you like to add text? (y/n)      ";
-    cin >> choice;                                             //вибір для введення додаткового тексту
-    getchar();                                                 //видвлення останнього символу(символу кінця)
+    cin >> choice;                                             //РІРёР±С–СЂ РґР»СЏ РІРІРµРґРµРЅРЅСЏ РґРѕРґР°С‚РєРѕРІРѕРіРѕ С‚РµРєСЃС‚Сѓ
+    getchar();                                                 //РІРёРґРІР»РµРЅРЅСЏ РѕСЃС‚Р°РЅРЅСЊРѕРіРѕ СЃРёРјРІРѕР»Сѓ(СЃРёРјРІРѕР»Сѓ РєС–РЅС†СЏ)
 
-    file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "a");       //відкриття вхідного файлу
+    file = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "a");       //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
     
-    if (choice == 'y' || choice == 'Y') {                  //якщо користувач хоче ввести дод. текст
+    if (choice == 'y' || choice == 'Y') {                  //СЏРєС‰Рѕ РєРѕСЂРёСЃС‚СѓРІР°С‡ С…РѕС‡Рµ РІРІРµСЃС‚Рё РґРѕРґ. С‚РµРєСЃС‚
         
         cout << ("\nInput your text (press Enter and then * to stop):\n\n");
 
         do {
-            fgets(line, sizeof(line), stdin);            //ввід рядка
+            fgets(line, sizeof(line), stdin);            //РІРІС–Рґ СЂСЏРґРєР°
 
-            if (strcmp(line, "*\n") != 0) {                 //якщо введений рядок не містить "*\n" то записати його у файл
+            if (strcmp(line, "*\n") != 0) {                 //СЏРєС‰Рѕ РІРІРµРґРµРЅРёР№ СЂСЏРґРѕРє РЅРµ РјС–СЃС‚РёС‚СЊ "*\n" С‚Рѕ Р·Р°РїРёСЃР°С‚Рё Р№РѕРіРѕ Сѓ С„Р°Р№Р»
                 fprintf(file, "%s", line);
             }
-        } while (strcmp(line, "*\n") != 0);                  //поки не введено "*"
+        } while (strcmp(line, "*\n") != 0);                  //РїРѕРєРё РЅРµ РІРІРµРґРµРЅРѕ "*"
     }
-    else if (choice == 'n' || choice == 'N') {}             //якщо ні то нічого не робити
+    else if (choice == 'n' || choice == 'N') {}             //СЏРєС‰Рѕ РЅС– С‚Рѕ РЅС–С‡РѕРіРѕ РЅРµ СЂРѕР±РёС‚Рё
 
-    else {                                        //вивести помилку про некоректний ввід
+    else {                                        //РІРёРІРµСЃС‚Рё РїРѕРјРёР»РєСѓ РїСЂРѕ РЅРµРєРѕСЂРµРєС‚РЅРёР№ РІРІС–Рґ
     cout << " Invalid data";
     }
-    fclose(file);                                 //закрити вхідний файл
-    free(line);                                   //звільний пам'ять line
+    fclose(file);                                 //Р·Р°РєСЂРёС‚Рё РІС…С–РґРЅРёР№ С„Р°Р№Р»
+    free(line);                                   //Р·РІС–Р»СЊРЅРёР№ РїР°Рј'СЏС‚СЊ line
     return line;
 }
 
 void write_to_file_c() {
-    FILE* inputFile = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "r");         //відкриття вхідного файлу
-    FILE* outputFile = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\outfile.txt", "w");       //відкриття вихідного файлу
+    FILE* inputFile = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\infile.txt", "r");         //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+    FILE* outputFile = fopen("E:\\visual studio\\laba_op\\x64\\Debug\\outfile.txt", "w");       //РІС–РґРєСЂРёС‚С‚СЏ РІРёС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
 
     char line[100];
 
-    while (fgets(line, sizeof(line), inputFile) != NULL) {                    //поки не досягнуто кінця вхідного файлу
-        char* changedLine = changeText_c(line);                               //виклик функції для зміни тексту
-        char* resultLine = replace_dublicates_c(changedLine);                 //виклик функції для заміни дублікатів
-        fprintf(outputFile, "%s\n", resultLine);                              //запис результату у вихідний файл
-        cout << resultLine << endl;                                           //вивід результату
+    while (fgets(line, sizeof(line), inputFile) != NULL) {                    //РїРѕРєРё РЅРµ РґРѕСЃСЏРіРЅСѓС‚Рѕ РєС–РЅС†СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+        char* changedLine = changeText_c(line);                               //РІРёРєР»РёРє С„СѓРЅРєС†С–С— РґР»СЏ Р·РјС–РЅРё С‚РµРєСЃС‚Сѓ
+        char* resultLine = replace_dublicates_c(changedLine);                 //РІРёРєР»РёРє С„СѓРЅРєС†С–С— РґР»СЏ Р·Р°РјС–РЅРё РґСѓР±Р»С–РєР°С‚С–РІ
+        fprintf(outputFile, "%s\n", resultLine);                              //Р·Р°РїРёСЃ СЂРµР·СѓР»СЊС‚Р°С‚Сѓ Сѓ РІРёС…С–РґРЅРёР№ С„Р°Р№Р»
+        cout << resultLine << endl;                                           //РІРёРІС–Рґ СЂРµР·СѓР»СЊС‚Р°С‚Сѓ
     }
 
-    fclose(inputFile);       //закриття вхідного файлу
-    fclose(outputFile);      //закриття вихідного файлу
+    fclose(inputFile);       //Р·Р°РєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+    fclose(outputFile);      //Р·Р°РєСЂРёС‚С‚СЏ РІРёС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
 }
 
