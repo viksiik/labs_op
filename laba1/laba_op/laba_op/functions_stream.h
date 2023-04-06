@@ -4,9 +4,9 @@
 #include <string>
 using namespace std;
 
-void main_string();                       //головна функція
-void output_infile(string& str);          //вивід вхідного файлу
-string input_record();                    //запис даних у файл
-void changeText(string file);             //змінити текст(цифри вперед)
-string replace_dublicates(string str);    //замінити дублікати
-string add_text();                        //додати текст у файл
+void main_string();                       //РіРѕР»РѕРІРЅР° С„СѓРЅРєС†С–СЏ
+void output_infile(string& str);          //РІРёРІС–Рґ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+string input_record();                    //Р·Р°РїРёСЃ РґР°РЅРёС… Сѓ С„Р°Р№Р»
+void changeText(string file);             //Р·РјС–РЅРёС‚Рё С‚РµРєСЃС‚(С†РёС„СЂРё РІРїРµСЂРµРґ)
+string replace_dublicates(string str);    //Р·Р°РјС–РЅРёС‚Рё РґСѓР±Р»С–РєР°С‚Рё
+string add_text();                        //РґРѕРґР°С‚Рё С‚РµРєСЃС‚ Сѓ С„Р°Р№Р»
