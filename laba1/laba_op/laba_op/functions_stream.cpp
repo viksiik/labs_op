@@ -6,71 +6,71 @@ using namespace std;
 void main_string() {                                    
     string file;
     cout << "Now you are in Stream Mode" << endl;
-    file = input_record();                               //ввести рядки тексту
-    add_text();                                          //додати текст
-    output_infile(file);                                 //вивести вміст вхідного файлу
-    changeText(file);                                    //змінити текст
+    file = input_record();                               //РІРІРµСЃС‚Рё СЂСЏРґРєРё С‚РµРєСЃС‚Сѓ
+    add_text();                                          //РґРѕРґР°С‚Рё С‚РµРєСЃС‚
+    output_infile(file);                                 //РІРёРІРµСЃС‚Рё РІРјС–СЃС‚ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+    changeText(file);                                    //Р·РјС–РЅРёС‚Рё С‚РµРєСЃС‚
 }
 
 
 string input_record() {
-    string in_file = "E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt";     //відкрити вхідний файл
+    string in_file = "E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt";     //РІС–РґРєСЂРёС‚Рё РІС…С–РґРЅРёР№ С„Р°Р№Р»
     cout << "\nInput your text (press Enter and then * to stop):\n";
     ofstream fout(in_file);                                           
     string temp;
     int count = 0;
-    while (temp.find(42) == string::npos) {                        //перевірка на "*" у рядку
-        getline(cin, temp);                                           //ввід рядка
-        if (count == 0 && temp.find(42) == string::npos)               //якщо count = 0 і немає "*"
-            fout << temp;                                             //запис у файл без роздільника
-        else if (temp.find(42) == string::npos)                           //якщо немає "*"
-            fout << endl << temp;                                    //запис у файл з роздільником(endl)
+    while (temp.find(42) == string::npos) {                        //РїРµСЂРµРІС–СЂРєР° РЅР° "*" Сѓ СЂСЏРґРєСѓ
+        getline(cin, temp);                                           //РІРІС–Рґ СЂСЏРґРєР°
+        if (count == 0 && temp.find(42) == string::npos)               //СЏРєС‰Рѕ count = 0 С– РЅРµРјР°С” "*"
+            fout << temp;                                             //Р·Р°РїРёСЃ Сѓ С„Р°Р№Р» Р±РµР· СЂРѕР·РґС–Р»СЊРЅРёРєР°
+        else if (temp.find(42) == string::npos)                           //СЏРєС‰Рѕ РЅРµРјР°С” "*"
+            fout << endl << temp;                                    //Р·Р°РїРёСЃ Сѓ С„Р°Р№Р» Р· СЂРѕР·РґС–Р»СЊРЅРёРєРѕРј(endl)
         count++;
     }
-    fout.close();                                                       //закриття вхідного файлу
+    fout.close();                                                       //Р·Р°РєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
     return in_file;
 }
 
 void output_infile(string& str) {
-    ifstream fin("E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt");    //відкриття вхідного файлу
+    ifstream fin("E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt");    //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
 
-    if (!fin.is_open()) {                           //якщо файл не було вікрито, вивести помилку відкриття
+    if (!fin.is_open()) {                           //СЏРєС‰Рѕ С„Р°Р№Р» РЅРµ Р±СѓР»Рѕ РІС–РєСЂРёС‚Рѕ, РІРёРІРµСЃС‚Рё РїРѕРјРёР»РєСѓ РІС–РґРєСЂРёС‚С‚СЏ
         cout << "File doesn`t exist" << endl;
-        fin.close();                               //закрити файл
+        fin.close();                               //Р·Р°РєСЂРёС‚Рё С„Р°Р№Р»
     }
-    else if (fin.is_open()) {                          //якщо файл було відкрито
+    else if (fin.is_open()) {                          //СЏРєС‰Рѕ С„Р°Р№Р» Р±СѓР»Рѕ РІС–РґРєСЂРёС‚Рѕ
         cout << "\nINPUT FILE:\n";
-        while (getline(fin, str)) {                   //доки не досягнуто кінця файлу
-            cout << str << endl;                        //вивести вміст вхідного файлу
+        while (getline(fin, str)) {                   //РґРѕРєРё РЅРµ РґРѕСЃСЏРіРЅСѓС‚Рѕ РєС–РЅС†СЏ С„Р°Р№Р»Сѓ
+            cout << str << endl;                        //РІРёРІРµСЃС‚Рё РІРјС–СЃС‚ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
         }
-        fin.close();                                   //закрити вхідний файл
+        fin.close();                                   //Р·Р°РєСЂРёС‚Рё РІС…С–РґРЅРёР№ С„Р°Р№Р»
     }
 }
 
 
 void changeText(string str) {
-    ifstream fin("E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt");              //відкриття вхідного файлу
-    ofstream fout("E:\\visual studio\\laba_op\\x64\\Debug\\out_file.txt");            //відкриття вихідного файлу
+    ifstream fin("E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt");              //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+    ofstream fout("E:\\visual studio\\laba_op\\x64\\Debug\\out_file.txt");            //РІС–РґРєСЂРёС‚С‚СЏ РІРёС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
 
     cout << "\nOUTPUT FILE:\n";
-    while (getline(fin, str)) {                                        //доки не досягнуто кінця файлу
+    while (getline(fin, str)) {                                        //РґРѕРєРё РЅРµ РґРѕСЃСЏРіРЅСѓС‚Рѕ РєС–РЅС†СЏ С„Р°Р№Р»Сѓ
         string digits = "", nonDigits = "";
-        for (int i = 0; i < str.length();i++)                       //поки і менше за довжину рядка
+        for (int i = 0; i < str.length();i++)                       //РїРѕРєРё С– РјРµРЅС€Рµ Р·Р° РґРѕРІР¶РёРЅСѓ СЂСЏРґРєР°
         {
-            if (isdigit(str[i])) {                            //якщо символ - число, додати до рядка digits
+            if (isdigit(str[i])) {                            //СЏРєС‰Рѕ СЃРёРјРІРѕР» - С‡РёСЃР»Рѕ, РґРѕРґР°С‚Рё РґРѕ СЂСЏРґРєР° digits
                 digits += str[i];
             }
-            else {                                              //якщо символ - не число, додати до рядка nonDigits
+            else {                                              //СЏРєС‰Рѕ СЃРёРјРІРѕР» - РЅРµ С‡РёСЃР»Рѕ, РґРѕРґР°С‚Рё РґРѕ СЂСЏРґРєР° nonDigits
                 nonDigits = str[i] + nonDigits;
             }
         }
 
-        string result = digits + nonDigits;                        //поєднання результату
-        cout << replace_dublicates(result) << endl;                //вивід замінених дублікатів
-        fout << replace_dublicates(result) << endl;                //запис замінених дублікатів у вихідний файл
+        string result = digits + nonDigits;                        //РїРѕС”РґРЅР°РЅРЅСЏ СЂРµР·СѓР»СЊС‚Р°С‚Сѓ
+        cout << replace_dublicates(result) << endl;                //РІРёРІС–Рґ Р·Р°РјС–РЅРµРЅРёС… РґСѓР±Р»С–РєР°С‚С–РІ
+        fout << replace_dublicates(result) << endl;                //Р·Р°РїРёСЃ Р·Р°РјС–РЅРµРЅРёС… РґСѓР±Р»С–РєР°С‚С–РІ Сѓ РІРёС…С–РґРЅРёР№ С„Р°Р№Р»
     }
-    fin.close();                   //закриття вхідного файлу
-    fout.close();                  //закриття вихідного файлу
+    fin.close();                   //Р·Р°РєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
+    fout.close();                  //Р·Р°РєСЂРёС‚С‚СЏ РІРёС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
 
 }
 
@@ -79,59 +79,59 @@ string replace_dublicates(string str) {
     string replacedText;
     int count = 1;
     for (int i = 1; i < str.size(); i++) {                          
-        if (str[i] == str[i - 1] && isdigit(str[i])) {              //порівняння сусідніх чисел
+        if (str[i] == str[i - 1] && isdigit(str[i])) {              //РїРѕСЂС–РІРЅСЏРЅРЅСЏ СЃСѓСЃС–РґРЅС–С… С‡РёСЃРµР»
             count++;
         }
         else {
             if (count > 1) {
-                replacedText += "(" + string(1, str[i - 1]) + ")";       //якщо більше одного числа - обмежити дужками
+                replacedText += "(" + string(1, str[i - 1]) + ")";       //СЏРєС‰Рѕ Р±С–Р»СЊС€Рµ РѕРґРЅРѕРіРѕ С‡РёСЃР»Р° - РѕР±РјРµР¶РёС‚Рё РґСѓР¶РєР°РјРё
             }
             else {
-                replacedText += str[i - 1];                   //додати попереднє значення
+                replacedText += str[i - 1];                   //РґРѕРґР°С‚Рё РїРѕРїРµСЂРµРґРЅС” Р·РЅР°С‡РµРЅРЅСЏ
             }
             count = 1;
         }
     }
-    if (count > 1) {                                                //якщо чисел 2 і більше
-        replacedText += "(" + string(1, str[str.size() - 1]) + ")";         //додати дужки навколо останнього символу вхідного рядка в рядок replacedText
+    if (count > 1) {                                                //СЏРєС‰Рѕ С‡РёСЃРµР» 2 С– Р±С–Р»СЊС€Рµ
+        replacedText += "(" + string(1, str[str.size() - 1]) + ")";         //РґРѕРґР°С‚Рё РґСѓР¶РєРё РЅР°РІРєРѕР»Рѕ РѕСЃС‚Р°РЅРЅСЊРѕРіРѕ СЃРёРјРІРѕР»Сѓ РІС…С–РґРЅРѕРіРѕ СЂСЏРґРєР° РІ СЂСЏРґРѕРє replacedText
     }
     else {
-        replacedText += str[str.size() - 1];             //додати останній символ вхідного рядка
+        replacedText += str[str.size() - 1];             //РґРѕРґР°С‚Рё РѕСЃС‚Р°РЅРЅС–Р№ СЃРёРјРІРѕР» РІС…С–РґРЅРѕРіРѕ СЂСЏРґРєР°
     }
     return replacedText;
 }
 
 string add_text() {
-    string in_file = "E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt";           //відкриття вхідного файлу
+    string in_file = "E:\\visual studio\\laba_op\\x64\\Debug\\in_file.txt";           //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
     string line;
     char choice;
     cout << "\nWould you like to add text? (y/n)      ";
-    cin >> choice;                                                          //вибір чи додавати текст
+    cin >> choice;                                                          //РІРёР±С–СЂ С‡Рё РґРѕРґР°РІР°С‚Рё С‚РµРєСЃС‚
 
-    ofstream fout(in_file, ios_base::app);         //відкриття вхідного файлу для дозапису
+    ofstream fout(in_file, ios_base::app);         //РІС–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ РґР»СЏ РґРѕР·Р°РїРёСЃСѓ
 
-    if (choice == 'y' || choice == 'Y') {                    //якщо так
+    if (choice == 'y' || choice == 'Y') {                    //СЏРєС‰Рѕ С‚Р°Рє
 
         if (!fout.is_open()) {
-            cout << "File doesn`t exist\n" << endl;              //вивести помилку про неможливість вікриття файлу
+            cout << "File doesn`t exist\n" << endl;              //РІРёРІРµСЃС‚Рё РїРѕРјРёР»РєСѓ РїСЂРѕ РЅРµРјРѕР¶Р»РёРІС–СЃС‚СЊ РІС–РєСЂРёС‚С‚СЏ С„Р°Р№Р»Сѓ
         }
-        else if (fout.is_open()) {                                 //якщо правильно відкрито
+        else if (fout.is_open()) {                                 //СЏРєС‰Рѕ РїСЂР°РІРёР»СЊРЅРѕ РІС–РґРєСЂРёС‚Рѕ
             cout << "\nInput your text(press Enter and then * to stop) :\n";
 
-            while (line != "*") {                       //поки line != "*"
-                fflush(stdin);                          //очистити буфер
-                getline(cin, line);                      //ввід рядків
+            while (line != "*") {                       //РїРѕРєРё line != "*"
+                fflush(stdin);                          //РѕС‡РёСЃС‚РёС‚Рё Р±СѓС„РµСЂ
+                getline(cin, line);                      //РІРІС–Рґ СЂСЏРґРєС–РІ
                 if (line != "*") {
-                    fout << line << endl;                   //запис у вхідний файл
+                    fout << line << endl;                   //Р·Р°РїРёСЃ Сѓ РІС…С–РґРЅРёР№ С„Р°Р№Р»
                 }
             }
         }
     }
-    else if (choice == 'n' || choice == 'N') {    }               //якщо ні, то нічого не робити
+    else if (choice == 'n' || choice == 'N') {    }               //СЏРєС‰Рѕ РЅС–, С‚Рѕ РЅС–С‡РѕРіРѕ РЅРµ СЂРѕР±РёС‚Рё
     else {
-        cout << " Invalid data";                  //вивід про некоректність вводу
+        cout << " Invalid data";                  //РІРёРІС–Рґ РїСЂРѕ РЅРµРєРѕСЂРµРєС‚РЅС–СЃС‚СЊ РІРІРѕРґСѓ
     }
-    fout.close();                 //закриття вхідного файлу
+    fout.close();                 //Р·Р°РєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ
     return in_file;
 }
 
