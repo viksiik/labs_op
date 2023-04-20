@@ -1,0 +1,5 @@
+﻿  BoolMatrix.cpp
+E:\visual studio\LAB_4\LAB_4\BoolMatrix.cpp(29,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  LAB_4.cpp
+  Создание кода...
+  LAB_4.vcxproj -> E:\visual studio\LAB_4\x64\Debug\LAB_4.exe
