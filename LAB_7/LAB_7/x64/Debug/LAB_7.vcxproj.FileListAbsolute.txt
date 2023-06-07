@@ -1,0 +1,4 @@
+E:\visual studio\op\LAB_7\LAB_7\x64\Debug\LAB_7.vcxproj.AssemblyReference.cache
+E:\visual studio\op\LAB_7\LAB_7\x64\Debug\LAB_7.vcxproj.SuggestedBindingRedirects.cache
+E:\visual studio\op\LAB_7\LAB_7\x64\Debug\LAB7.MyForm.resources
+E:\visual studio\op\LAB_7\LAB_7\x64\Debug\LAB_7.vcxproj.GenerateResource.cache
